@@ -7,8 +7,14 @@ import {
 } from '@react-navigation/drawer';
 import {StackNavigator} from './StackNavigator';
 import {SettingScreen} from '../screens/SettingScreen';
-import {useWindowDimensions, Text, Image, View} from 'react-native';
-import {globalStyles} from '../theme/appTheme';
+import {
+  useWindowDimensions,
+  Text,
+  Image,
+  View,
+  TouchableOpacity,
+} from 'react-native';
+import {StyleSheet} from 'react-native';
 
 const Drawer = createDrawerNavigator();
 
@@ -25,19 +31,55 @@ export const MenuLateral = () => {
   );
 };
 
-const ContenidoMenu = (
-  props: DrawerContentComponentProps<DrawerContentOptions>,
-) => {
+const ContenidoMenu = ({
+  navigation,
+}: DrawerContentComponentProps<DrawerContentOptions>) => {
   return (
     <DrawerContentScrollView>
-      <View style={globalStyles.avatarContainer}>
+      {/* parte del avatar */}
+      <View style={styles.avatarContainer}>
         <Image
           source={{
             uri: 'https://upload.wikimedia.org/wikipedia/commons/7/7c/Profile_avatar_placeholder_large.png',
           }}
-          style={globalStyles.avatar}
+          style={styles.avatar}
         />
+      </View>
+      {/* opciones de menú */}
+      <View style={styles.menuContainer}>
+        <TouchableOpacity
+          style={styles.menuBoton}
+          onPress={() => navigation.navigate('StackNavigator')}>
+          <Text style={styles.menuTexto}>Navegacion</Text>
+        </TouchableOpacity>
+        <TouchableOpacity
+          style={styles.menuBoton}
+          onPress={() => navigation.navigate('SettingScreen')}>
+          <Text style={styles.menuTexto}>Ajustes</Text>
+        </TouchableOpacity>
       </View>
     </DrawerContentScrollView>
   );
 };
+
+const styles = StyleSheet.create({
+  menuContainer: {
+    marginVertical: 30,
+    marginHorizontal: 20,
+  },
+  menuTexto: {
+    fontSize: 20,
+  },
+  menuBoton: {
+    marginVertical: 10,
+  },
+  avatar: {
+    width: 150,
+    height: 150,
+    borderRadius: 100,
+  },
+  avatarContainer: {
+    alignItems: 'center',
+    marginTop: 10,
+  },
+});
