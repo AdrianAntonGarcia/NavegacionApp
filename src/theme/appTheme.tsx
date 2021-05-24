@@ -7,6 +7,10 @@ export const colores = {
 export const globalStyles = StyleSheet.create({
   globalMargin: {
     marginHorizontal: 20,
+    flex: 1,
+    justifyContent: 'center',
+
+    alignItems: 'center',
   },
   title: {
     fontSize: 30,

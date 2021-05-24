@@ -22,7 +22,7 @@ export const Pagina1Screen = ({navigation}: Props) => {
   }, [navigation]);
   return (
     <View style={globalStyles.globalMargin}>
-      <Text style={globalStyles.title}>Pagina1Screen</Text>
+      <Text style={globalStyles.title}>Pantalla 1</Text>
       <Button
         title="Ir página 2"
         onPress={() => navigation.navigate('Pagina2Screen')}
@@ -47,6 +47,7 @@ export const Pagina1Screen = ({navigation}: Props) => {
           <Text style={globalStyles.botonGrandeTexto}>Ana</Text>
         </TouchableOpacity>
       </View>
+      <Icon name="logo-octocat" size={300} color="#f72585" />
     </View>
   );
 };
