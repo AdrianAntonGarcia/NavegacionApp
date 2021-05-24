@@ -8,6 +8,7 @@ import {StackNavigator} from './StackNavigator';
 import {colores} from '../theme/appTheme';
 import {Platform, Text} from 'react-native';
 import {TopTabNavigator} from './TopTabNavigator';
+import Icon from 'react-native-vector-icons/Ionicons';
 
 export const Tabs = () => {
   return Platform.OS === 'ios' ? <TabsIOS /> : <TabsAndroid />;
@@ -22,16 +23,22 @@ const TabsAndroid = () => {
       barStyle={{backgroundColor: colores.primary}}
       screenOptions={({route}) => ({
         tabBarIcon: ({color}) => {
-          let iconName: string = '';
+          let iconName: Element = <></>;
           switch (route.name) {
             case 'Tab1Screen':
-              iconName = 'T1';
+              iconName = (
+                <Icon name="aperture-outline" size={20} color="#b5179e" />
+              );
               break;
             case 'Tab2Screen':
-              iconName = 'T2';
+              iconName = (
+                <Icon name="basketball-outline" size={20} color="#e76f51" />
+              );
               break;
             case 'StackNavigator':
-              iconName = 'St';
+              iconName = (
+                <Icon name="battery-full-outline" size={20} color="#52b69a" />
+              );
               break;
 
             default:

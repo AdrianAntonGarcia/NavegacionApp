@@ -4,6 +4,7 @@ import {DrawerScreenProps} from '@react-navigation/drawer';
 // import {StackScreenProps} from '@react-navigation/stack';
 import {Button, Text, View, TouchableOpacity} from 'react-native';
 import {globalStyles} from '../theme/appTheme';
+import Icon from 'react-native-vector-icons/Ionicons';
 
 // interface Props extends StackScreenProps<any, any> {}
 interface Props extends DrawerScreenProps<any, any> {}
@@ -12,7 +13,10 @@ export const Pagina1Screen = ({navigation}: Props) => {
   useEffect(() => {
     navigation.setOptions({
       headerLeft: () => (
-        <Button title="Menu" onPress={() => navigation.toggleDrawer()} />
+        // <Button title="Menu"  onPress={() => navigation.toggleDrawer()} />
+        <TouchableOpacity onPress={() => navigation.toggleDrawer()}>
+          <Icon name="menu-outline" size={50} color="#f72585" />
+        </TouchableOpacity>
       ),
     });
   }, [navigation]);
@@ -29,15 +33,17 @@ export const Pagina1Screen = ({navigation}: Props) => {
         <TouchableOpacity
           style={{...globalStyles.botonGrande, backgroundColor: '#5856D6'}}
           onPress={() =>
-            navigation.navigate('PersonaScreen', {id: 1, nombre: 'Pedro'})
+            navigation.navigate('PersonaScreen', {id: 1, nombre: 'Adrián'})
           }>
-          <Text style={globalStyles.botonGrandeTexto}>Pedro</Text>
+          <Icon name="heart-outline" size={50} color="#f72585" />
+          <Text style={globalStyles.botonGrandeTexto}>Adrián</Text>
         </TouchableOpacity>
         <TouchableOpacity
           style={{...globalStyles.botonGrande, backgroundColor: '#FF9427'}}
           onPress={() =>
             navigation.navigate('PersonaScreen', {id: 2, nombre: 'Ana'})
           }>
+          <Icon name="heart-outline" size={50} color="#f72585" />
           <Text style={globalStyles.botonGrandeTexto}>Ana</Text>
         </TouchableOpacity>
       </View>
