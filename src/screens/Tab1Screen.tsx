@@ -15,7 +15,7 @@ export const Tab1Screen = () => {
         <TouchableIcon iconName="attach-outline" />
         <TouchableIcon iconName="bonfire-outline" />
         <TouchableIcon iconName="calculator-outline" />
-        <TouchableIcon iconName="chatbubble-elipses-outline" />
+        <TouchableIcon iconName="arrow-redo-circle-outline" />
         <TouchableIcon iconName="images-outline" />
         <TouchableIcon iconName="leaf-outline" />
       </Text>
