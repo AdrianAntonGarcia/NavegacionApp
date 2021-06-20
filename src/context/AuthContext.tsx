@@ -8,7 +8,11 @@ export interface AuthState {
 }
 
 // Estado inicial
-export const authInitialState: AuthState = {isLoggedIn: false};
+export const authInitialState: AuthState = {
+  isLoggedIn: false,
+  userName: undefined,
+  favoriteIcon: undefined,
+};
 
 // Lo usuaremos para decirle a React como luce y que expone el context
 export interface AuthContextProps {
